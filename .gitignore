@@ -12,3 +12,5 @@
 *.app
 
 .DS_Store
+
+*.debug

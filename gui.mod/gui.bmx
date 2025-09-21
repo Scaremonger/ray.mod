@@ -159,9 +159,9 @@ End Function
 
 ' Styles loading functions
 Function GuiLoadStyle(fileName:String)
-	Local length:Size_T = fileName.length * 3 + 1
-	Local f:Byte Ptr = StackAlloc(length)
-	fileName.ToUTF8StringBuffer(f, length)
+	Local Length:Size_T = fileName.Length * 3 + 1
+	Local f:Byte Ptr = StackAlloc(Length)
+	fileName.ToUTF8StringBuffer(f, Length)
 
 	bmx_raygui_GuiLoadStyle(f)
 End Function
@@ -180,9 +180,9 @@ Function GuiDisableTooltip()
 End Function
 
 Function GuiSetTooltip(text:String)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 	bmx_raygui_GuiSetTooltip(t)
 End Function
 
@@ -194,9 +194,9 @@ End Rem
 Function GuiWindowBox:Int(bounds:RRectangle, title:String)
 	Local t:Byte Ptr
 	If title Then
-		Local length:Size_T = title.length * 3 + 1
-		t = StackAlloc(length)
-		title.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = title.Length * 3 + 1
+		t = StackAlloc(Length)
+		title.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiWindowBox(bounds, t)
 End Function
@@ -207,9 +207,9 @@ End Rem
 Function GuiGroupBox(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	bmx_raygui_GuiGroupBox(bounds, t)
 End Function
@@ -220,9 +220,9 @@ End Rem
 Function GuiLine(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	bmx_raygui_GuiLine(bounds, t)
 End Function
@@ -249,9 +249,9 @@ End Rem
 Function GuiLabel(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	bmx_raygui_GuiLabel(bounds:RRectangle, t)
 End Function
@@ -262,9 +262,9 @@ End Rem
 Function GuiButton:Int(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiButton(bounds:RRectangle, t)
 End Function
@@ -275,9 +275,9 @@ End Rem
 Function GuiLabelButton:Int(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiLabelButton(bounds:RRectangle, t)
 End Function
@@ -314,9 +314,9 @@ End Rem
 Function GuiToggle:Int(bounds:RRectangle, txt:String, active:Int Var)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiToggle(bounds, t, active)
 End Function
@@ -327,9 +327,9 @@ End Rem
 Function GuiToggleGroup:Int(bounds:RRectangle, txt:String, active:Int Var)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiToggleGroup(bounds, t, active)
 End Function
@@ -340,9 +340,9 @@ End Rem
 Function GuiCheckBox:Int(bounds:RRectangle, txt:String, checked:Int Var)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiCheckBox(bounds, t, checked)
 End Function
@@ -353,9 +353,9 @@ End Rem
 Function GuiComboBox:Int(bounds:RRectangle, txt:String, active:Int Var)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiComboBox(bounds, t, active)
 End Function
@@ -366,9 +366,9 @@ End Rem
 Function GuiDropdownBox:Int(bounds:RRectangle, txt:String, active:Int Var, editMode:Int)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiDropdownBox(bounds, t, active, editMode)
 End Function
@@ -379,9 +379,9 @@ End Rem
 Function GuiSpinner:Int(bounds:RRectangle, txt:String, value:Int Var, minValue:Int, maxValue:Int, editMode:Int)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiSpinner(bounds, t, value, minValue, maxValue, editMode)
 End Function
@@ -392,9 +392,9 @@ End Rem
 Function GuiValueBox:Int(bounds:RRectangle, txt:String, value:Int Var, minValue:Int, maxValue:Int, editMode:Int)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiValueBox(bounds, t, value, minValue, maxValue, editMode)
 End Function
@@ -404,10 +404,10 @@ bbdoc: Text Box control, which updates input text.
 about: @textSize is the maximum number of UTF-8 characters.
 End Rem
 Function GuiTextBox:Int(bounds:RRectangle, txt:String Var, textSize:Int, editMode:Int)
-	Local length:Size_T = Min(textSize, txt.length * 3 + 1)
+	Local Length:Size_T = Min(textSize, txt.Length * 3 + 1)
 	Local t:Byte Ptr = StackAlloc(textSize)
 	MemClear(t, Size_T(textSize))
-	txt.ToUTF8StringBuffer(t, length)
+	txt.ToUTF8StringBuffer(t, Length)
 	Local res:Int = bmx_raygui_GuiTextBox(bounds, t, textSize, editMode)
 	txt = String.FromUTF8String(t)
 	Return res
@@ -430,13 +430,13 @@ Rem
 bbdoc: Slider control.
 End Rem
 Function GuiSlider:Int(bounds:RRectangle, txtLeft:String, txtRight:String, value:Float Var, minValue:Float, maxValue:Float)
-	Local length:Size_T = txtLeft.length * 3 + 1
-	Local tl:Byte Ptr = StackAlloc(length)
-	txtLeft.ToUTF8StringBuffer(tl, length)
+	Local Length:Size_T = txtLeft.Length * 3 + 1
+	Local tl:Byte Ptr = StackAlloc(Length)
+	txtLeft.ToUTF8StringBuffer(tl, Length)
 
-	length = txtRight.length * 3 + 1
-	Local tr:Byte Ptr = StackAlloc(length)
-	txtRight.ToUTF8StringBuffer(tr, length)
+	Length = txtRight.Length * 3 + 1
+	Local tr:Byte Ptr = StackAlloc(Length)
+	txtRight.ToUTF8StringBuffer(tr, Length)
 
 	Return bmx_raygui_GuiSlider(bounds, tl, tr, value, minValue, maxValue)
 End Function
@@ -445,13 +445,13 @@ Rem
 bbdoc: Slider Bar control.
 End Rem
 Function GuiSliderBar:Int(bounds:RRectangle, txtLeft:String, txtRight:String, value:Float Var, minValue:Float, maxValue:Float)
-	Local length:Size_T = txtLeft.length * 3 + 1
-	Local tl:Byte Ptr = StackAlloc(length)
-	txtLeft.ToUTF8StringBuffer(tl, length)
+	Local Length:Size_T = txtLeft.Length * 3 + 1
+	Local tl:Byte Ptr = StackAlloc(Length)
+	txtLeft.ToUTF8StringBuffer(tl, Length)
 
-	length = txtRight.length * 3 + 1
-	Local tr:Byte Ptr = StackAlloc(length)
-	txtRight.ToUTF8StringBuffer(tr, length)
+	Length = txtRight.Length * 3 + 1
+	Local tr:Byte Ptr = StackAlloc(Length)
+	txtRight.ToUTF8StringBuffer(tr, Length)
 
 	Return bmx_raygui_GuiSliderBar(bounds, tl, tr, value, minValue, maxValue)
 End Function
@@ -461,18 +461,18 @@ bbdoc: Progress Bar control, which shows current progress value.
 End Rem
 Function GuiProgressBar:Int(bounds:RRectangle, txtLeft:String, txtRight:String, value:Float Var, minValue:Float, maxValue:Float)
 	Local tl:Byte Ptr
-	Local length:Size_T
+	Local Length:Size_T
 	If txtLeft Then
-		Local length:Size_T = txtLeft.length * 3 + 1
-		tl = StackAlloc(length)
-		txtLeft.ToUTF8StringBuffer(tl, length)
+		Local Length:Size_T = txtLeft.Length * 3 + 1
+		tl = StackAlloc(Length)
+		txtLeft.ToUTF8StringBuffer(tl, Length)
 	End If
 
 	Local tr:Byte Ptr
 	If txtRight Then
-		length = txtRight.length * 3 + 1
-		tr = StackAlloc(length)
-		txtRight.ToUTF8StringBuffer(tr, length)
+		Length = txtRight.Length * 3 + 1
+		tr = StackAlloc(Length)
+		txtRight.ToUTF8StringBuffer(tr, Length)
 	End If
 
 	Return bmx_raygui_GuiProgressBar(bounds, tl, tr, value, minValue, maxValue)
@@ -484,9 +484,9 @@ End Rem
 Function GuiStatusBar(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	bmx_raygui_GuiStatusBar(bounds, t)
 End Function
@@ -497,9 +497,9 @@ End Rem
 Function GuiDummyRec(bounds:RRectangle, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	bmx_raygui_GuiDummyRec(bounds, t)
 End Function
@@ -526,9 +526,9 @@ End Rem
 Function GuiListView:Int(bounds:RRectangle, txt:String, scrollIndex:Int Var, active:Int Var)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return bmx_raygui_GuiListView(bounds:RRectangle, t, scrollIndex, active)
 End Function
@@ -537,12 +537,12 @@ Rem
 bbdoc: List View with extended parameters.
 End Rem
 Function GuiListViewEx:Int(bounds:RRectangle, txt:String[], scrollIndex:Int Var, active:Int Var, focus:Int Var)
-	Local list:Byte Ptr Ptr = StackAlloc(Size_T(txt.length * 8))
-	For Local i:Int = 0 Until txt.length
+	Local list:Byte Ptr Ptr = StackAlloc(Size_T(txt.Length * 8))
+	For Local i:Int = 0 Until txt.Length
 		list[i] = txt[i].ToUTF8String()
 	Next
-	Local res:Int = bmx_raygui_GuiListViewEx(bounds, list, txt.length, scrollIndex, active, focus)
-	For Local i:Int = 0 Until txt.length
+	Local res:Int = bmx_raygui_GuiListViewEx(bounds, list, txt.Length, scrollIndex, active, focus)
+	For Local i:Int = 0 Until txt.Length
 		MemFree(list[i])
 	Next
 	Return res
@@ -552,17 +552,17 @@ Rem
 bbdoc: Message Box control, which displays a message.
 End Rem
 Function GuiMessageBox:Int(bounds:RRectangle, title:String, message:String, buttons:String)
-	Local length:Size_T = title.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	title.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = title.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	title.ToUTF8StringBuffer(t, Length)
 
-	length = message.length * 3 + 1
-	Local m:Byte Ptr = StackAlloc(length)
-	message.ToUTF8StringBuffer(m, length)
+	Length = message.Length * 3 + 1
+	Local m:Byte Ptr = StackAlloc(Length)
+	message.ToUTF8StringBuffer(m, Length)
 
-	length = buttons.length * 3 + 1
-	Local b:Byte Ptr = StackAlloc(length)
-	buttons.ToUTF8StringBuffer(b, length)
+	Length = buttons.Length * 3 + 1
+	Local b:Byte Ptr = StackAlloc(Length)
+	buttons.ToUTF8StringBuffer(b, Length)
 	
 	Return bmx_raygui_GuiMessageBox(bounds, t, m, b)
 End Function
@@ -571,17 +571,17 @@ Rem
 bbdoc: Color Picker control.
 End Rem
 Function GuiColorPicker:Int(bounds:RRectangle, text:String, color:RColor Var)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 
 	Return bmx_raygui_GuiColorPicker(bounds, t, color)
 End Function
 
 Function GuiColorPanel:Int(bounds:RRectangle, text:String, color:RColor Var)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 
 	Return bmx_raygui_GuiColorPanel(bounds, t, color)
 End Function
@@ -590,22 +590,22 @@ Rem
 bbdoc: Text Input Box control, asks for text.
 End Rem
 Function GuiTextInputBox:Int(bounds:RRectangle, title:String, message:String, buttons:String, txt:String Var, textMaxSize:Int, secretViewActive:Int Var)
-	Local length:Size_T = title.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	title.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = title.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	title.ToUTF8StringBuffer(t, Length)
 
-	length = message.length * 3 + 1
-	Local m:Byte Ptr = StackAlloc(length)
-	message.ToUTF8StringBuffer(m, length)
+	Length = message.Length * 3 + 1
+	Local m:Byte Ptr = StackAlloc(Length)
+	message.ToUTF8StringBuffer(m, Length)
 
-	length = buttons.length * 3 + 1
-	Local b:Byte Ptr = StackAlloc(length)
-	buttons.ToUTF8StringBuffer(b, length)
+	Length = buttons.Length * 3 + 1
+	Local b:Byte Ptr = StackAlloc(Length)
+	buttons.ToUTF8StringBuffer(b, Length)
 
 	Local t2:Byte Ptr = StackAlloc(textMaxSize)
 	If txt Then
-		length = txt.length * 3 + 1
-		txt.ToUTF8StringBuffer(t2, length)
+		Length = txt.Length * 3 + 1
+		txt.ToUTF8StringBuffer(t2, Length)
 	Else
 		t2[0] = 0
 	End If
@@ -615,6 +615,13 @@ Function GuiTextInputBox:Int(bounds:RRectangle, title:String, message:String, bu
 	Return res
 End Function
 
+' Controls_test_suite uses a version of this function without the last two arguments but because secretviewActive is passed
+' by reference you cannot add a default value to the arguments in the above function.
+' Scaremonger 19 Sep 2025
+Function GuiTextInputBox:Int(bounds:RRectangle, title:String, message:String, buttons:String, txt:String Var )
+	Local secretView:Int = False
+	Return GuiTextInputBox( bounds, title, message, buttons, txt, 255, secretview )
+End Function
 
 ' Styles loading functions
 ' Rem
@@ -642,9 +649,9 @@ End Rem
 Function GuiIconText:String(iconId:Int, txt:String)
 	Local t:Byte Ptr
 	If txt Then
-		Local length:Size_T = txt.length * 3 + 1
-		t = StackAlloc(length)
-		txt.ToUTF8StringBuffer(t, length)
+		Local Length:Size_T = txt.Length * 3 + 1
+		t = StackAlloc(Length)
+		txt.ToUTF8StringBuffer(t, Length)
 	End If
 	Return String.FromUTF8String(bmx_raygui_GuiIconText(iconId, t))
 End Function
@@ -661,9 +668,9 @@ bbdoc: Color Bar Alpha control.
 about: Returns alpha value normalized `[0..1]`.
 End Rem
 Function GuiColorBarAlpha:Int(bounds:RRectangle, text:String, alpha:Float Var)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 	Return bmx_raygui_GuiColorBarAlpha(bounds, t, alpha)
 End Function
 
@@ -672,22 +679,22 @@ bbdoc: Color Bar Hue control.
 about: Returns hue value normalized `[0..1]`.
 End Rem
 Function GuiColorBarHue:Int(bounds:RRectangle, text:String, value:Float Var)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 	Return bmx_raygui_GuiColorBarHue(bounds, t, value)
 End Function
 
 Function GuiColorPickerHSV:Int(bounds:RRectangle, text:String, colorHsv:RVector3 Var)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 	Return bmx_raygui_GuiColorPickerHSV(bounds, t, colorHsv)
 End Function
 
 Function GuiColorPanelHSV:Int(bounds:RRectangle, text:String, colorHsv:RVector3)
-	Local length:Size_T = text.length * 3 + 1
-	Local t:Byte Ptr = StackAlloc(length)
-	text.ToUTF8StringBuffer(t, length)
+	Local Length:Size_T = text.Length * 3 + 1
+	Local t:Byte Ptr = StackAlloc(Length)
+	text.ToUTF8StringBuffer(t, Length)
 	Return bmx_raygui_GuiColorPanelHSV(bounds, t, colorHsv)
 End Function

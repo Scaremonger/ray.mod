@@ -1,7 +1,7 @@
 SuperStrict
 
 Framework Ray.GUI
-Import Text.Format
+Import Text.format
 Import BRL.FileSystem
 
 
@@ -44,8 +44,8 @@ Local multiTextBoxText:String = "Multi text box"
 Local multiTextBoxEditMode:Int = False
 Local colorPickerValue:RColor = RED
 
-Local SliderValue:Int = 50
-Local sliderBarValue:Int = 60
+Local SliderValue:Float = 50
+Local sliderBarValue:Float = 60
 Local progressValue:Float = 0.4
 
 Local forceSquaredChecked:Int = False
@@ -89,9 +89,9 @@ While Not exitWindow    ' Detect window close button or ESC key
 	End If
 	
 	If IsFileDropped() Then
-		Local droppedFiles:String[] = GetDroppedFiles()
+		Local droppedFiles:String[] = LoadDroppedFiles()
 		
-		If droppedFiles.length And ExtractExt(droppedFiles[0]) = "rgs" Then
+		If droppedFiles.Length And ExtractExt(droppedFiles[0]) = "rgs" Then
 			GuiLoadStyle(droppedFiles[0])
 		End If
 	End If
@@ -157,7 +157,7 @@ While Not exitWindow    ' Detect window close button or ESC key
 		GuiSetState(GUI_STATE_NORMAL)
 		GuiUnlock()
 		
-		comboBoxActive = GuiComboBox(New RRectangle(25, 470, 125, 30), "ONE;TWO;THREE;FOUR;", comboBoxActive)
+		GuiComboBox(New RRectangle(25, 470, 125, 30), "ONE;TWO;THREE;FOUR;", comboBoxActive)
 
 		' NOTE: GuiDropdownBox must draw after any other control that can be covered on unfolding
 		GuiSetStyle(DROPDOWNBOX, TEXT_ALIGNMENT, GUI_TEXT_ALIGN_LEFT)
@@ -171,27 +171,30 @@ While Not exitWindow    ' Detect window close button or ESC key
 		End If
 
 		' Second GUI column
-		listViewActive = GuiListView(New RRectangle(165, 25, 140, 140), "Charmander;Bulbasaur;#18#Squirtel;Pikachu;Eevee;Pidgey;", listViewScrollIndex, listViewActive)
-		listViewExActive = GuiListViewEx(New RRectangle(165, 180, 140, 200), listViewExList, listViewExFocus, listViewExScrollIndex, listViewExActive)
+		GuiListView(New RRectangle(165, 25, 140, 140), "Charmander;Bulbasaur;#18#Squirtel;Pikachu;Eevee;Pidgey;", listViewScrollIndex, listViewActive)
+'Commented out because it segfaults (Scaremonger, 19 SEP 2025)
+'ERROR	GuiListViewEx(New RRectangle(165, 180, 140, 200), listViewExList, listViewExFocus, listViewExScrollIndex, listViewExActive)
 
-		toggleGroupActive = GuiToggleGroup(New RRectangle(165, 400, 140, 25), "#1#ONE~n#3#TWO~n#8#THREE~n#23#", toggleGroupActive)
+		GuiToggleGroup(New RRectangle(165, 400, 140, 25), "#1#ONE~n#3#TWO~n#8#THREE~n#23#", toggleGroupActive)
 
 		' Third GUI column
-		If GuiTextBoxMulti(New RRectangle(320, 25, 225, 140), multiTextBoxText, 141, multiTextBoxEditMode) Then
-			multiTextBoxEditMode = Not multiTextBoxEditMode
-		End If
-		colorPickerValue = GuiColorPicker(New RRectangle(320, 185, 196, 192), colorPickerValue)
+'This is commented out in RAY.GUI/gui.bmx, so will Not currently work (Scaremonger, 19 SEP 2025)
+		'If GuiTextBoxMulti(New RRectangle(320, 25, 225, 140), multiTextBoxText, 141, multiTextBoxEditMode) Then
+		'	multiTextBoxEditMode = Not multiTextBoxEditMode
+		'End If
+		GuiColorPicker(New RRectangle(320, 185, 196, 192), "", colorPickerValue)
 
-		SliderValue = GuiSlider(New RRectangle(355, 400, 165, 20), "TEST", formatter.Clear().Arg(Float(SliderValue)).Format(), SliderValue, -50, 100)
-		sliderBarValue = GuiSliderBar(New RRectangle(320, 430, 200, 20), Null, Int(sliderBarValue), sliderBarValue, 0, 100)
-		progressValue = GuiProgressBar(New RRectangle(320, 460, 200, 20), Null, Null, progressValue, 0, 1)
+		GuiSlider(New RRectangle(355, 400, 165, 20), "TEST", formatter.Clear().Arg(Float(SliderValue)).format(), SliderValue, -50, 100)
+		GuiSliderBar(New RRectangle(320, 430, 200, 20), Null, Int(sliderBarValue), sliderBarValue, 0, 100)
+		GuiProgressBar(New RRectangle(320, 460, 200, 20), Null, Null, progressValue, 0, 1)
 
 		' NOTE: View rectangle could be used to perform some scissor test
-		Local view:RRectangle = GuiScrollPanel(New RRectangle(560, 25, 100, 160), New RRectangle(560, 25, 200, 400), viewScroll)
+'Commented out because it segfaults (Scaremonger, 19 SEP 2025)
+'ERROR		Local view:RRectangle = GuiScrollPanel(New RRectangle(560, 25, 100, 160), New RRectangle(560, 25, 200, 400), viewScroll)
 		
 		GuiStatusBar(New RRectangle(0, GetScreenHeight() - 20, GetScreenWidth(), 20), "This is a status bar")
 		
-		alphaValue = GuiColorBarAlpha(New RRectangle(320, 490, 200, 30), alphaValue)
+		GuiColorBarAlpha(New RRectangle(320, 490, 200, 30), "", alphaValue)
 
 		If showMessageBox Then
 			DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(RAYWHITE, 0.8))
